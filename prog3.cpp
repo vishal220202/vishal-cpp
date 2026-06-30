@@ -1,4 +1,4 @@
-#include<iostream>
+#include <iostream>
 #include<string>
 
 using namespace std;
@@ -6,51 +6,79 @@ using namespace std;
 class Shape{
 	private:
 		string color;
-		float area;
+		double area;
 		
 		public:
-			void setcolor(string col)
+			void setColor(string c)
 			{
-				color=col;
+				color=c;
 			}
 			string getColor()
 			{
 				return color;
 			}
-			void setarea(float are)
+			void setArea(double a)
 			{
-				area=are;
+				area=a;
 			}
-			float getArea()
+			double getArea()
 			{
 				return area;
 			}
-			
-			
-			void Display()
-			{
-				cout<<"Area of Circule is: "<<endl;
-				cout<<"Area of Ractangle is: "<<endl;
-				cout<<"Color of Circule is: "<<endl;
-				cout<<"Color of Ractangle is: "<<endl;	
-			}
-		
-		
 };
-class Circule:public Shape{
-	public:
-		float radius;
+class Circle:public Shape{
+	private:
+		double radius;
 		
+		public:
+			void setRadius(double r)
+			{
+				radius=r;
+			}
+			void CalculateArea()
+			{
+				double a;
+				a=3.14*radius*radius;
+				setArea(a);
+			}
 };
 class Rectangle:public Shape{
-	public:
-		float length,width;
-			
-}; 
-			
+	private:
+		double length;
+		double width;
+		
+		public:
+			void setDimension(double l,double w)
+			{
+				length=l;
+				width=w;
+			}
+			void CalculateArea()
+			{
+				double a;
+				a=length*width;
+				setArea(a);
+			}
+};
 int main()
 {
-	Shape obj;
-	obj.Display();
-     return 0;
+	Circle c;
+	
+	c.setColor("Red");
+	c.setRadius(5.0);
+	c.CalculateArea();
+	
+	cout<<"\nColor: "<<c.getColor()<<endl;
+	cout<<"Area: "<<c.getArea()<<endl;
+	
+	Rectangle r;
+	
+	r.setColor("Blue");
+	r.setDimension(2.0,5.0);
+	r.CalculateArea();
+	
+	cout<<"\nColor: "<<r.getColor()<<endl;
+	cout<<"Area: "<<r.getArea()<<endl;
+	
+	return 0;
 }
