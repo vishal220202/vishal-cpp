@@ -19,7 +19,7 @@ class Employee{
 		  }
 		  void setsalary(int sal)
 		  {
-		  	salary=s;
+		  	salary=sal;
 		  }
 		  int getSalary()
 		  {
@@ -34,3 +34,18 @@ class Employee{
 		  	return designation;
 		  }
 };
+
+int main()
+{
+    Employee emp;
+    
+    emp.setname("Rahul");
+    emp.setsalary(70000);
+    emp.setdesignation("Full-Stack-Web-Devloper");
+    
+    cout<<"Name: "<<emp.getName()<<endl;
+    cout<<"Salary: "<<emp.getSalary()<<endl;
+    cout<<"Designation: "<<emp.getDesignation()<<endl;
+    
+    return 0;
+}
